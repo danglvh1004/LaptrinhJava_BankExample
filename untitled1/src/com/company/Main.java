@@ -12,11 +12,24 @@ public class Main {
 
         Bank bank = new Bank(ACCOUNTS, INITIAL_BALANCE);
 
-        while (true) {
-            int fromAccount = (int) (ACCOUNTS * Math.random());
-            int toAccount = (int) (ACCOUNTS * Math.random());
-            double amount = MAX_AMOUNT * Math.random();
-            bank.transfer(fromAccount, toAccount, amount);
-        }
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    int fromAccount = (int) (ACCOUNTS * Math.random());
+                    int toAccount = (int) (ACCOUNTS * Math.random());
+                    double amount = MAX_AMOUNT * Math.random();
+                    bank.transfer(fromAccount, toAccount, amount);
+                }
+            }
+        };
+
+        Thread t1 = new Thread(runnable);
+        t1.start();
+
+        Thread t2 = new Thread(runnable);
+        t2.start();
+
+        int x = new Scanner(System.in).nextInt();
     }
 }
