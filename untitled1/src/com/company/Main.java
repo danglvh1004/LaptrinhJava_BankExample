@@ -6,7 +6,7 @@ public class Main {
 
     static final int ACCOUNTS = 3;
     static final double INITIAL_BALANCE = 1000;
-    static final double MAX_AMOUNT = 500;
+    static final double MAX_AMOUNT = 1200;
 
     public static void main(String[] args) {
 
